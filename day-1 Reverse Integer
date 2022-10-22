@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int reverse(int x) {
+        long long int rev=0;
+        long long int num;
+        long long int n;
+        n=x;
+        do{
+            num=n%10;
+            rev=(rev*10)+num;
+            n=n/10;
+}while(n!=0);
+        
+        if(rev<INT_MIN or rev>INT_MAX)
+                return 0;
+        
+        return rev;
+    }
+};
