@@ -1,0 +1,29 @@
+Problem statement: https://leetcode.com/problems/linked-list-cycle/
+
+Code :
+
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        
+        ListNode* small = head;
+        ListNode* large = head;
+        
+        while(large!=NULL && large->next!=NULL){
+            small = small->next;
+            large = large->next->next;
+            if(small == large){
+                return true;
+}
+}
+        return false;
+    }
+};
+
+
+Success :
+Details :
+Runtime: 24 ms, faster than 48.31% of C++ online submissions for Linked List Cycle.
+Memory Usage: 8 MB, less than 57.95% of C++ online submissions for Linked List Cycle.
+
+
