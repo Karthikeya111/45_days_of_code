@@ -1,0 +1,50 @@
+Problem Statement : https://practice.geeksforgeeks.org/problems/postorder-traversal-iterative/1
+
+Code :
+
+class Solution{
+    public:
+    vector<int> postOrder(Node* node) {
+        // code here
+        
+        vector<int>v;
+        
+        stack<Node*>s;
+        s.push(node);
+
+        while(!s.empty()){
+           
+           Node* current = s.top();
+           s.pop();
+           
+            v.push_back(current->data);
+           
+           if(current->left){
+               s.push(current->left);
+           }
+           if(current->right){
+               s.push(current->right);
+           }
+           
+        }
+        
+            int i=0,j=v.size()-1;
+
+              while(i<j){
+
+              swap(v[i],v[j]);
+
+              i++;
+
+             j--;
+
+        }
+        return v;
+    }
+};
+
+
+
+Expected time complexity: O(N)
+Expected auxiliary space: O(N)
+
