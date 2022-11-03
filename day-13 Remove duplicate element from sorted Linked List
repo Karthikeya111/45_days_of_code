@@ -1,0 +1,27 @@
+Problem Statement : https://practice.geeksforgeeks.org/problems/remove-duplicate-element-from-sorted-linked-list/1
+
+Code :
+
+Node *removeDuplicates(Node *head)
+{
+ // your code goes here
+ 
+ Node *current = head;
+ 
+ if(current==NULL){
+     return current;
+ }
+ 
+ while(current!=NULL && current->next!=NULL){
+     if(current->data!=current->next->data){
+         current = current->next;
+     }else{
+         current->next = current->next->next;
+     }
+ }
+ 
+ return (head);
+}
+
+Expected Time Complexity : O(N)
+Expected Auxilliary Space : O(1)
