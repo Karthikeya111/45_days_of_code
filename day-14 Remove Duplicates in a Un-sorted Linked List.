@@ -1,0 +1,55 @@
+Problem Statement : https://practice.geeksforgeeks.org/problems/remove-duplicates-from-an-unsorted-linked-list/1
+
+Code :
+
+class Solution
+{
+    public:
+    //Function to remove duplicates from unsorted linked list.
+    Node * removeDuplicates( Node *head) 
+    {
+     // your code goes here
+     
+     Node *current = head;
+     Node *p = NULL;
+     unordered_set<int>s;
+     
+     while(current!=NULL){
+         if(s.find(current->data) !=s.end()){
+             p->next = current->next;
+             delete(current);
+         }else{
+             s.insert(current->data);
+             p = current;
+         }
+         current=p->next;
+     }
+    //     if(head==NULL){
+    //     return NULL;
+
+    //     }
+    //   Node *p1;
+    //   p1 = head;
+      
+    //   while(p1!=NULL and p1->next!=NULL){
+    //       Node *p2 = p1;
+    //       while(p2->next!=NULL){
+    //           if(p1->data == p2->next->data){
+    //             Node *d = p2->next;
+    //             p2->next = p2->next->next;
+    //             delete (d);
+    //           }else{
+    //               p2=p2->next;
+    //           }
+             
+    //       }
+    //       p1=p1->next;
+    //   }
+  
+      return head;
+    }
+};
+
+
+Expected Time Complexity: O(N)
+Expected Auxiliary Space: O(N)
