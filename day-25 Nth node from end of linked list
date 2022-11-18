@@ -1,0 +1,36 @@
+Problem Statement : https://practice.geeksforgeeks.org/problems/nth-node-from-end-of-linked-list/1?page=1&difficulty[]=0&sortBy=submissions
+
+Code :
+
+int len(Node *head){
+           Node *current = head;
+       int count=0;
+       while(current!=NULL){
+           current = current->next;
+           count++;
+       }
+       return count;
+    
+}
+//Function to find the data of nth node from the end of a linked list.
+int getNthFromLast(Node *head, int n)
+{
+       // Your code here
+       int len1 = len(head);
+         if(len1<n){
+           return -1;
+       }
+       Node *temp = head;
+       
+     
+       for(int i=0;i<(len1-n);i++){
+           temp = temp->next;
+       }
+
+       
+       return temp->data;
+}
+
+
+Expected Time Complexity: O(N).
+Expected Auxiliary Space: O(1).
