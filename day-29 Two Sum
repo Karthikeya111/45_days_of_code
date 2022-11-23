@@ -1,0 +1,50 @@
+Problem Statement : https://leetcode.com/problems/two-sum/
+
+Code :
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        int first,second;
+        vector<int>v1 = nums;
+        vector<int>v2;
+        sort(nums.begin(),nums.end());
+        int i=0;
+        int j = nums.size()-1;
+        
+        while(i<j)
+        {
+            if(nums[i] + nums [j] == target)
+            {
+                first  = nums[i];
+                second = nums[j];
+                break;
+            }
+            else if(nums[i] + nums[j] > target)
+            {
+                j--;
+            }else
+            {
+                i++;
+            }
+        }
+        
+        for(int i=0;i<v1.size();i++)
+        {
+            if(v1[i] == first)
+            {
+                v2.push_back(i);
+            }
+            else if(v1[i] == second)
+            {
+                v2.push_back(i);
+            }
+        }
+        
+        sort(v2.begin(),v2.end());
+        
+        return v2;
+    }
+};
+
+Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity?
