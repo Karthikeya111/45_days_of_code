@@ -1,0 +1,32 @@
+Problem statement : https://leetcode.com/problems/valid-anagram/
+
+Code :
+
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+       
+        
+   vector<int>ar1(26,0);
+        
+    if(s.length()!=t.length())
+       {
+           return false;
+       }
+      
+    for(int i = 0; i < s.length(); i++)
+    {
+        ar1[s[i] - 'a']++;
+        ar1[t[i] - 'a']--;
+    }
+        
+     for(int i = 0; i < ar1.size(); i++)
+     {
+         if(ar1[i]!= 0)
+         {
+             return false;
+         }
+     }
+        return true;
+    }
+};
