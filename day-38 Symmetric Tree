@@ -1,0 +1,18 @@
+Problem statement : https://leetcode.com/problems/symmetric-tree/?envType=study-plan&id=data-structure-i
+
+Code :
+
+class Solution {
+public:
+    bool isSymmetric(TreeNode* root) {
+    if(root == NULL)return true;
+    return ans(root->left,root->right);
+    }
+    bool ans(TreeNode* leftr, TreeNode* rightr)
+    {
+        if(!leftr and !rightr)return true;
+        if(!leftr or !rightr)return false;
+        if(leftr->val != rightr->val)return false;
+        return (ans(leftr->right,rightr->left) and ans(leftr->left,rightr->right));
+    }
+};
